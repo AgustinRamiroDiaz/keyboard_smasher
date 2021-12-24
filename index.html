@@ -3,44 +3,45 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-    crossorigin="anonymous"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
     />
     <style>
       [v-cloak] {
-          display: none;
+        display: none;
       }
-  </style>
+    </style>
 
     <title>Keyboard Smasher</title>
   </head>
   <body
-  style="
+    style="
       background-color: #f69065;
       color: #ffffff;
       text-align: center;
       margin: 0px;
       padding: 0px;
       font-family: 'Roboto', sans-serif;
-      "
+    "
   >
-  <h1 class="display-1">Smash your keys ⌨ as fast as you can!</h1>
-  
-  <div id="app" v-cloak>
-    <h1>
-      {{ timer }}
-    </h1>
+    <h1 class="display-1">Smash your keys ⌨ as fast as you can!</h1>
 
-    <h1 v-for="(score, key) in scores" style="font-family: monospace; font-weight: bolder;">
-      {{ key }} ➜ {{ score }}
-    </h1>
-    
-    <h1 class="fixed-bottom"> {{ pressToPlayMessage }} </h1>
-  </div>
+    <div id="app" v-cloak>
+      <h1>{{ timer }}</h1>
 
-  <script src="https://unpkg.com/vue@next"></script>
-  <script src="main.js"></script>
+      <h1
+        v-for="(score, key) in scores"
+        style="font-family: monospace; font-weight: bolder"
+      >
+        {{ key }} ➜ {{ score }}
+      </h1>
+
+      <h1 class="fixed-bottom">{{ pressToPlayMessage }}</h1>
+    </div>
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="main.js"></script>
   </body>
 </html>
