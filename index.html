@@ -26,7 +26,7 @@
       font-family: 'Roboto', sans-serif;
       "
   >
-  <h1 class="display-1">Smash as fast as you can!</h1>
+  <h1 class="display-1">Smash your keys ⌨ as fast as you can!</h1>
   
   <div id="app" v-cloak>
     <h1>
@@ -37,6 +37,7 @@
       {{ key }} ➜ {{ score }}
     </h1>
     
+    <h1 class="fixed-bottom"> {{ pressToPlayMessage }} </h1>
   </div>
 
   <script src="https://unpkg.com/vue@next"></script>

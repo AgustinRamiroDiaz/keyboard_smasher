@@ -8,13 +8,15 @@ let app = Vue.createApp({
   data() {
     return {
       timer: "",
-      scores: {},
+      scores: Object,
+      pressToPlayMessage: String,
     };
   },
 
   methods: {
     clean() {
       this.scores = {};
+      this.pressToPlayMessage = "";
     },
     catchKey(e) {
       if (e.repeat) return;
@@ -39,9 +41,12 @@ let app = Vue.createApp({
       document.removeEventListener("keydown", this.catchKey);
 
       this.timer = "Time's up!";
+
+      this.pressKeyToStartGame(startGameKey);
     },
 
     pressKeyToStartGame(startGameKey) {
+      this.pressToPlayMessage = `Press spacebar to start`;
       document.addEventListener(
         "keydown",
         (e) => {
