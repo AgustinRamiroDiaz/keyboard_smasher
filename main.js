@@ -21,7 +21,7 @@ let app = Vue.createApp({
 
       let key = e.key;
       if (this.scores[key] === undefined) {
-        this.scores[key] = 0;
+        this.scores[key] = 1;
       } else {
         this.scores[key] += 1;
       }
@@ -37,7 +37,7 @@ let app = Vue.createApp({
 
       document.addEventListener("keydown", this.catchKey);
       await sleep(gamePlaySeconds * 1000);
-        document.removeEventListener("keydown", this.catchKey)
+      document.removeEventListener("keydown", this.catchKey);
 
       this.timer = "Time's up!";
     },
