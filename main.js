@@ -1,5 +1,9 @@
 var startGameKey = " ";
 
+const sleep = (milliseconds) => {
+  return new Promise((resolve) => setTimeout(resolve, milliseconds));
+};
+
 let app = Vue.createApp({
   data() {
     return {
@@ -23,25 +27,18 @@ let app = Vue.createApp({
       }
     },
 
-    play(gamePlaySeconds, delay = 3) {
+    async play(gamePlaySeconds, delay = 3) {
       for (let secondsElapsed = 0; secondsElapsed < delay; secondsElapsed++) {
         let timeLeft = delay - secondsElapsed;
-        setTimeout(() => {
-          this.timer = timeLeft;
-        }, secondsElapsed * 1000);
+        this.timer = timeLeft;
+        await sleep(1000);
       }
 
+      this.timer = "GO!";
+      document.addEventListener("keydown", this.catchKey);
       setTimeout(
-        () => {
-          this.timer = "GO!";
-          document.addEventListener("keydown", this.catchKey);
-          setTimeout(
-            () => document.removeEventListener("keydown", this.catchKey),
-            gamePlaySeconds * 1000
-          );
-        },
-
-        delay * 1000
+        () => document.removeEventListener("keydown", this.catchKey),
+        gamePlaySeconds * 1000
       );
 
       setTimeout(() => {
