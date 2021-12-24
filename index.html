@@ -8,6 +8,12 @@
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
     crossorigin="anonymous"
     />
+    <style>
+      [v-cloak] {
+          display: none;
+      }
+  </style>
+
     <title>Keyboard Smasher</title>
   </head>
   <body
@@ -22,7 +28,7 @@
   >
   <h1 class="display-1">Smash as fast as you can!</h1>
   
-  <div id="app">
+  <div id="app" v-cloak>
     <h1>
       {{ timer }}
     </h1>
