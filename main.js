@@ -33,17 +33,13 @@ let app = Vue.createApp({
         this.timer = timeLeft;
         await sleep(1000);
       }
-
       this.timer = "GO!";
-      document.addEventListener("keydown", this.catchKey);
-      setTimeout(
-        () => document.removeEventListener("keydown", this.catchKey),
-        gamePlaySeconds * 1000
-      );
 
-      setTimeout(() => {
-        this.timer = "Time's up!";
-      }, (gamePlaySeconds + delay) * 1000);
+      document.addEventListener("keydown", this.catchKey);
+      await sleep(gamePlaySeconds * 1000);
+        document.removeEventListener("keydown", this.catchKey)
+
+      this.timer = "Time's up!";
     },
 
     pressKeyToStartGame(startGameKey) {
