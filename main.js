@@ -28,8 +28,7 @@ let app = Vue.createApp({
     },
 
     async play(gamePlaySeconds, delay = 3) {
-      for (let secondsElapsed = 0; secondsElapsed < delay; secondsElapsed++) {
-        let timeLeft = delay - secondsElapsed;
+      for (let timeLeft = delay; timeLeft > 0; timeLeft--) {
         this.timer = timeLeft;
         await sleep(1000);
       }
