@@ -1,6 +1,5 @@
 var startGameKey = " ";
 
-
 let app = Vue.createApp({
   data() {
     return {
@@ -24,12 +23,12 @@ let app = Vue.createApp({
       }
     },
 
-    play(seconds, delay = 3) {
-      for (let i = 0; i < delay; i++) {
-        let timeLeft = delay - i;
+    play(gamePlaySeconds, delay = 3) {
+      for (let secondsElapsed = 0; secondsElapsed < delay; secondsElapsed++) {
+        let timeLeft = delay - secondsElapsed;
         setTimeout(() => {
           this.timer = timeLeft;
-        }, i * 1000);
+        }, secondsElapsed * 1000);
       }
 
       setTimeout(
@@ -38,12 +37,16 @@ let app = Vue.createApp({
           document.addEventListener("keydown", this.catchKey);
           setTimeout(
             () => document.removeEventListener("keydown", this.catchKey),
-            seconds * 1000
+            gamePlaySeconds * 1000
           );
         },
 
         delay * 1000
       );
+
+      setTimeout(() => {
+        this.timer = "Time's up!";
+      }, (gamePlaySeconds + delay) * 1000);
     },
 
     pressKeyToStartGame(startGameKey) {
