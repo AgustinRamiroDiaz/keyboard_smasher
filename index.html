@@ -27,8 +27,8 @@
       {{ timer }}
     </h1>
 
-    <h1>
-      {{ scores }}
+    <h1 v-for="(score, key) in scores" style="font-family: monospace; font-weight: bolder;">
+      {{ key }} ➜ {{ score }}
     </h1>
     
   </div>
