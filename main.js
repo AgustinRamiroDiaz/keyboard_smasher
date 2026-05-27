@@ -1,15 +1,17 @@
-var startGameKey = " ";
+import { createApp } from "vue";
+
+const startGameKey = " ";
 
 const sleep = (milliseconds) => {
   return new Promise((resolve) => setTimeout(resolve, milliseconds));
 };
 
-let app = Vue.createApp({
+const app = createApp({
   data() {
     return {
       timer: "",
-      scores: Object,
-      pressToPlayMessage: String,
+      scores: {},
+      pressToPlayMessage: "",
     };
   },
 
